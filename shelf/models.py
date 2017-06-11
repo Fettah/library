@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 class Author(models.Model):
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
@@ -18,7 +16,7 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=False)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
-    published_at = models.DateTimeField()
+    published_at = models.DateField()
     isbn = models.CharField(max_length=16, blank=False)
 
     class Meta:
