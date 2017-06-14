@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from shelf.serializers import AuthorSerializer, BookSerializer
 from shelf.models import Book, Author
+import pdb;
 
 class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer
