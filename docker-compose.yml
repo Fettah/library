@@ -1,14 +1,32 @@
-version: '3'
-
+version: '2.1'
 services:
-  db:
-    image: postgres
-  web:
+  app:
     build: .
+    working_dir: /code
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+    environment:
+      - PRETTIQUE_BE_POSTGRESQL_PASSWORD=
+      - PRETTIQUE_BE_POSTGRESQL_USER=root
+      - PRETTIQUE_BE_POSTGRESQL_DB=library
+      - PRETTIQUE_BE_POSTGRESQL_HOST=postgresql
+      - PYTHONPATH=.
+      - DJANGO_SETTINGS_MODULE=prettique_site.settings.dev
+    links:
+      - postgresql:postgresql
     ports:
       - "8000:8000"
-    depends_on:
-      - db
+    entrypoint:  /code/docker/entrypoint.sh
+  postgresql:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_PASSWORD=devel
+      - POSTGRES_USER=devel
+      - POSTGRES_DB=prettique
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
