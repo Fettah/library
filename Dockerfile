@@ -36,7 +36,7 @@ RUN \
         zlib-dev \
         jpeg-dev \
         linux-headers && \
-    pip3 install -r requirements/devel.txt && \
+    pip3 install -r requirements/base.txt && \
     apk del \
         gcc \
         musl-dev \
