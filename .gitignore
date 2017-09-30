@@ -1,0 +1,13 @@
+
+*.cpython-36.pyc
+__pycache__/
+*.pyc
+env/*
+library/bin/*
+library/lib/*
+library/pip-selfcheck.json
+library/.Python
+library/include/
+staticfiles/
+static/
+django_extensions/

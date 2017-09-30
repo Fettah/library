@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from shelf.models import Author, Book
+from shelf.models import Author, Book, Tag
 import pdb
 class BookSerializer(serializers.HyperlinkedModelSerializer):
     author_id = serializers.PrimaryKeyRelatedField(queryset=Author.objects.all())
@@ -17,3 +17,10 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
         books = validated_data.pop('boooks')
         author = Author.objects.create(**validated_data)
         return author
+
+
+class TagsSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Tag
+        fields = ('id', 'name')
