@@ -7,12 +7,11 @@ services:
     volumes:
       - .:/code
     environment:
-      - PRETTIQUE_BE_POSTGRESQL_PASSWORD=
-      - PRETTIQUE_BE_POSTGRESQL_USER=root
-      - PRETTIQUE_BE_POSTGRESQL_DB=library
+      - PRETTIQUE_BE_POSTGRESQL_PASSWORD=devel
+      - PRETTIQUE_BE_POSTGRESQL_USER=devel
+      - PRETTIQUE_BE_POSTGRESQL_DB=devel
       - PRETTIQUE_BE_POSTGRESQL_HOST=postgresql
       - PYTHONPATH=.
-      - DJANGO_SETTINGS_MODULE=prettique_site.settings.dev
     links:
       - postgresql:postgresql
     ports:
@@ -23,7 +22,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=devel
       - POSTGRES_USER=devel
-      - POSTGRES_DB=prettique
+      - POSTGRES_DB=devel
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

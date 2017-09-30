@@ -53,11 +53,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'library.urls'
-
+# import pdb; pdb.set_trace()
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,24 +79,13 @@ WSGI_APPLICATION = 'library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': "",
-        'HOST': os.environ['DB_SERVICE'],
-        'PORT': os.environ['DB_PORT']
+        'NAME': 'library',
+        'USER': 'devel',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'library',
-#         'USER': 'abdel',
-#         'PASSWORD': '',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
 
 
 # Password validation
