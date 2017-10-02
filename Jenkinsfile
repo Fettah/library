@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Initlizqe') {
+    stage('Initialize') {
       steps {
-        echo 'Hello world '
+        sh 'python --version'
       }
     }
   }
