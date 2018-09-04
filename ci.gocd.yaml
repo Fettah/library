@@ -1,0 +1,14 @@
+pipelines:
+  testing:
+    group: my-group
+    materials:
+      library-master:
+        git: https://github.com/fettah/library.git
+        branch: master
+    stages:
+      - 01_build: # name of stage
+          jobs:
+            test: # name of the job
+              tasks:
+               - exec: # indicates type of task
+                   command: python manage.py test
