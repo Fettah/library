@@ -1,3 +1,3 @@
-- name: ci
-  service: app
-  command: python3 manage.py test
+# - name: ci
+#   service: app
+#   command: python3 manage.py test
