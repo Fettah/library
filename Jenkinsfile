@@ -1,11 +1,15 @@
 pipeline {
-  agent any
-  stages {
-    stage('Initialize') {
-      steps {
-        sh ' source bin/activate'
-        git(branch: 'jenkins', url: 'git@github.com:Fettah/library.git', poll: true)
-      }
+    agent none
+    stages {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'python:2-alpine'
+                }
+            }
+            steps {
+                sh 'python -m py_compile sources/add2vals.py sources/calc.py'
+            }
+        }
     }
-  }
 }
