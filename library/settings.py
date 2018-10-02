@@ -79,14 +79,13 @@ WSGI_APPLICATION = 'library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'library',
-        'USER': 'devel',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': os.environ.get('POSTGRESQL_DB', 'library'),
+        'USER': os.environ.get('POSTGRESQL_USER', 'devel'),
+        'PASSWORD': os.environ.get('POSTGRESQL_PASSWORD', ''),
+        'HOST': os.environ.get('POSTGRESQL_HOST', 'localhost'),
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

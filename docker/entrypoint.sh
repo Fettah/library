@@ -2,7 +2,7 @@
 
 
 function test_postgres {
-	pg_isready -h "${PRETTIQUE_BE_POSTGRESQL_HOST}" -U "${PRETTIQUE_BE_POSTGRESQL_USER}"
+	pg_isready -h "${POSTGRESQL_HOST}" -U "${POSTGRESQL_USER}"
 }
 
 RUN_CMD="${@:-python3 manage.py runserver 0.0.0.0:8000}"
